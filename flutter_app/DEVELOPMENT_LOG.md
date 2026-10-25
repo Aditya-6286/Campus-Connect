@@ -2,24 +2,30 @@
 
 ## Current milestone
 
-The Flutter application foundation and first home-screen layout are now in place.
+The Flutter foundation, responsive home dashboard, and named-route navigation are implemented.
 
 ### Completed
 
 - Added the Flutter project manifest under `flutter_app/`.
-- Created the first `MaterialApp` entry point.
-- Built the Campus Connect home screen with basic Material widgets.
-- Used `Row`, `Column`, `Card`, `Padding`, `SizedBox`, and `Expanded` for the initial layout.
+- Built the home screen with Material widgets and reusable dashboard cards.
+- Added responsive sizing with `MediaQuery`, `LayoutBuilder`, and `Wrap`.
+- Added named routes for Events, Notices, Subjects, and Profile.
+- Connected each dashboard card to its destination with `Navigator.pushNamed`.
+- Added a Back to Home button on each destination page using `Navigator.pop`.
 
 ### Syllabus mapping
 
 - Experiment 1: Flutter/Dart project foundation.
-- Experiment 2: Flutter widgets and Row/Column/Stack-style layout concepts.
+- Experiment 2: Flutter widgets and layouts.
+- Experiment 3: Responsive UI using `MediaQuery` and `LayoutBuilder`.
+- Experiment 4: Screen navigation using `Navigator` and named routes.
+
+### Verification note
+
+The source changes were reviewed against the existing Flutter code. A Flutter SDK was not available in this GitHub-only session, so `flutter analyze` and device testing have not been run yet.
 
 ### Next planned work
 
-1. Improve the home dashboard layout without introducing out-of-syllabus dependencies.
-2. Add responsive behavior with `MediaQuery` and `LayoutBuilder`.
-3. Add screen navigation with `Navigator` and named routes.
-4. Introduce state management with `setState()` and Provider where appropriate.
-5. Continue through custom widgets/themes, forms and validation, animations, REST API data, and Flutter tests/debugging.
+1. Confirm the remaining experiments against the official lab manual.
+2. Add syllabus-aligned state updates with `setState()` where useful.
+3. Continue with custom widgets/themes and forms, based on the actual syllabus.
