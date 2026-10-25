@@ -5,11 +5,11 @@
 **Student:** Tirumala Venkata Aditya  
 **College:** ACE Engineering College  
 **Branch:** Computer Science and Engineering  
-**Report date:** 25 October 2026  
+**Report date:** 26 October 2026  
 **Repository:** https://github.com/Aditya-6286/Campus-Connect  
 **Syllabus reference:** [Official JNTUH R22 B.Tech CSE syllabus, CS506PC, page 87](https://jntuh.ac.in/uploads/academics/R22B.Tech.CSECourseStructureSyllabus2.pdf)
 
-> **Verification note:** The latest Flutter source commit `985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe` passed [GitHub Actions run #22](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40222193081): Dart basics, analysis, 11 unit/widget tests, and Web release build all succeeded. The immediately preceding banner-image commit failed with `Invalid image data`; the corrected PNG passed the subsequent test and build. No physical-device or real-browser smoke test has been recorded, and no genuine app screenshots have been captured.
+> **Verification note (updated 26 October 2026):** Flutter source commit `985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe` passed [GitHub Actions run #22](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40222193081): Dart basics, analysis, 11 unit/widget tests, and the Web release build all succeeded. The current `main` head is a later documentation-only commit; Flutter source has not changed since the validated commit. The immediately preceding banner-image commit failed with `Invalid image data`; the corrected PNG passed the subsequent test and build. No physical-device or real-browser smoke test has been recorded, and no genuine app screenshots have been captured.
 
 ## 1. Abstract
 
@@ -121,18 +121,18 @@ The table follows the ten CS506PC experiments listed in the official JNTUH R22 B
 
 | Experiment | Implementation/evidence | Status and caveat |
 | --- | --- | --- |
-| 1(a). Install Flutter and Dart SDK | CI installs stable Flutter; local setup commands are documented | CI setup verified on run #20; local machine installation not verified |
-| 1(b). Dart language basics | `tool/dart_basics.dart` | Passed on run #20 |
+| 1(a). Install Flutter and Dart SDK | CI installs stable Flutter; local setup commands are documented | CI setup verified on run #22; local machine installation not verified |
+| 1(b). Dart language basics | `tool/dart_basics.dart` | Passed on run #22 |
 | 2(a). Flutter widgets (Text, Image, Container, etc.) | Dashboard includes Text, Container, bundled Image asset and Material components | Implemented; Image asset passed CI run #22 |
 | 2(b). Row, Column, Stack layouts | Row on Events, Column on screens, Stack on dashboard | Implemented |
 | 3(a–b). Responsive UI, media queries and breakpoints | MediaQuery, LayoutBuilder, Wrap, scrollable layouts | Implemented; no physical-device/browser smoke test recorded |
-| 4(a–b). Navigator and named routes | Named routes and Navigator actions | Implemented; navigation test passed on run #20 |
-| 5(a–b). Stateful/stateless widgets and state management | setState, Provider, ChangeNotifier | Implemented; state tests passed on run #20 |
+| 4(a–b). Navigator and named routes | Named routes and Navigator actions | Implemented; navigation test passed on run #22 |
+| 5(a–b). Stateful/stateless widgets and state management | setState, Provider, ChangeNotifier | Implemented; state tests passed on run #22 |
 | 6(a–b). Custom widgets, themes and styles | Reusable bookmark action, dashboard cards, Material 3 theme | Implemented |
-| 7(a–b). Form fields, validation and error handling | Profile form and required-field validators | Implemented; profile tests passed on run #20 |
-| 8(a–b). Animation framework; fade/slide animations | FadeTransition, SlideTransition, ScaleTransition | Implemented; animation test passed on run #20 |
-| 9(a–b). REST API and meaningful UI display | Typed HTTP client and asynchronous Notices screen | API client tests passed on run #20; live network/UI flow not verified |
-| 10(a–b). Unit tests and debugging | Flutter tests, analyzer, CI logs, Web release build | Run #20 passed; latest commit run #21 pending |
+| 7(a–b). Form fields, validation and error handling | Profile form and required-field validators | Implemented; profile tests passed on run #22 |
+| 8(a–b). Animation framework; fade/slide animations | FadeTransition, SlideTransition, ScaleTransition | Implemented; animation test passed on run #22 |
+| 9(a–b). REST API and meaningful UI display | Typed HTTP client and asynchronous Notices screen | API client tests passed on run #22; live network/UI flow not verified |
+| 10(a–b). Unit tests and debugging | Flutter tests, analyzer, CI logs, Web release build | Run #22 passed for Flutter source commit `985de8e`; later commits only update documentation |
 
 ## 9. Testing and verification evidence
 
@@ -150,7 +150,7 @@ The table follows the ten CS506PC experiments listed in the official JNTUH R22 B
 | Run Dart language basics example | Passed |
 | `flutter analyze` | Passed — “No issues found!” |
 | `flutter test` | Passed — 11 unit/widget test cases reported successful |
-| `flutter build web --release` | Passed — Web release bundle built; log included a non-fatal font-manifest warning mentioning CupertinoIcons |
+| `flutter build web --release` | Passed — Web release bundle built. Non-blocking logs included a WebAssembly dry-run advisory and a font-manifest warning mentioning CupertinoIcons. GitHub Actions also emitted a Node.js deprecation notice for `actions/checkout@v4`; the job succeeded. |
 
 The 11 successful test cases covered event search and empty results, profile validation (invalid and valid submissions), saved-state toggling and notifications, bookmark fade/slide/scale transitions, dashboard navigation/shared state, API success/error/response-shape handling, and the dashboard Image widget after the asset correction.
 
@@ -185,11 +185,11 @@ For Android, configure the Android SDK and start an emulator or connect a device
 - Replace JSONPlaceholder with an official college API if one becomes available.
 - Replace Events and Subjects sample records with approved campus data.
 - Persist profile information and saved sections using an appropriate storage layer.
-- Run the latest CI to completion and fix any failures before submission.
+- Keep CI green after any future Flutter source/workflow change; Run #22 completed successfully for the current Flutter source.
 - Perform browser and Android device smoke tests.
 - Capture genuine screenshots from the running app and insert them in the report/README.
 - Review accessibility and responsive behavior on representative screen sizes.
 
 ## 12. Conclusion
 
-Campus Connect combines the ten confirmed CS506PC lab themes in a student-facing Flutter prototype: widgets/layouts, responsive design, navigation, state, reusable widgets/themes, validation, animation, REST consumption, and tests. The latest Flutter source commit passed analysis, 11 tests, the Dart basics example, and the Web release build. Browser/device smoke testing and screenshots remain outstanding before the project should be described as fully validated for final submission.
+Campus Connect combines the ten confirmed CS506PC lab themes in a student-facing Flutter prototype: widgets/layouts, responsive design, navigation, state, reusable widgets/themes, validation, animation, REST consumption, and tests. The latest Flutter source commit on `main` (`985de8e`) passed analysis, 11 tests, the Dart basics example, and the Web release build in run #22; subsequent commits only update documentation. Browser/device smoke testing and genuine screenshots remain outstanding, so the project is CI-validated but not yet fully validated on a running device/browser.

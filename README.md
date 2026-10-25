@@ -40,13 +40,13 @@ Campus Connect is a Flutter prototype that brings common student-facing campus i
 | 7(a–b). Form fields, validation and error handling | Profile form with required-field validators | Implemented; widget tests |
 | 8(a–b). Animation framework; fade/slide animations | `AnimatedSwitcher` with fade, slide and scale transitions | Implemented; animation widget test |
 | 9(a–b). REST API and meaningful display | Typed HTTP client and asynchronous Notices UI | Client tests pass; live API/UI flow not end-to-end verified |
-| 10(a–b). Unit tests and debugging | Flutter tests, `flutter analyze`, CI logs and Web release build | Last completed run passed; latest asset-change run is pending |
+| 10(a–b). Unit tests and debugging | Flutter tests, `flutter analyze`, CI logs and Web release build | Run #22 passed for the latest Flutter source commit; later commits only changed documentation |
 
 ## Verification status
 
 - **Latest Flutter source commit verified by CI:** [`985de8e`](https://github.com/Aditya-6286/Campus-Connect/commit/985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe), [Run #22](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40222193081) — **passed**.
-- Run #22 reported **no analyzer issues**, passed the Dart basics example, passed **11 unit/widget test cases**, and built the Web release successfully. The build log also emitted a non-fatal font-manifest warning mentioning CupertinoIcons; it did not prevent the release bundle from being built.
-- The preceding banner-image commit failed with `Invalid image data`; the asset was replaced with a locally validated PNG in commit `985de8e`, and the new asset then passed the widget test and Web build. A real browser/device smoke test is still not recorded.
+- Run #22 reported **no analyzer issues**, passed the Dart basics example, passed **11 unit/widget test cases**, and built the Web release successfully. Non-blocking log warnings included a WebAssembly dry-run advisory, a font-manifest warning mentioning CupertinoIcons, and a GitHub Actions Node.js deprecation notice for `actions/checkout@v4`; none failed the job.
+- The preceding banner-image commit failed with `Invalid image data`; the asset was replaced in commit `985de8e`, and the corrected asset passed the widget test and Web build. Subsequent `main` commits only update documentation, so Run #22 still represents the current Flutter source. A real browser/device smoke test is not recorded.
 
 ## Run the application
 
@@ -79,4 +79,4 @@ For Android execution, configure the Android SDK and launch an emulator or conne
 - Saved-section state is in-memory and resets when the app restarts.
 - Platform runners are generated in CI and are not tracked in the repository.
 - No genuine screenshots from a running browser/device have been captured yet.
-- Browser/device smoke testing and final validation of the latest commit are still required.
+- Browser/device smoke testing and genuine screenshots remain outstanding; rerun CI after any future Flutter source or workflow changes.
