@@ -1,6 +1,6 @@
 # Campus Connect — Flutter Student Companion
 
-Campus Connect is a Flutter demo application that brings common student-facing campus information into one mobile-friendly interface. It is being built against the **CS506PC UI Design–Flutter lab topics**, with each milestone tracked in GitHub.
+Campus Connect is a Flutter prototype that brings common student-facing campus information into one responsive interface. Its lab mapping follows the official [JNTUH R22 B.Tech CSE syllabus, CS506PC: UI Design–Flutter (page 87)](https://jntuh.ac.in/uploads/academics/R22B.Tech.CSECourseStructureSyllabus2.pdf).
 
 ## Student details
 
@@ -13,36 +13,44 @@ Campus Connect is a Flutter demo application that brings common student-facing c
 ## Current features
 
 - Responsive Material 3 dashboard using `MediaQuery`, `LayoutBuilder`, and `Wrap`
+- Bundled campus banner image using `Image.asset`
 - Named navigation for Events, Notices, Subjects, and Profile
 - Searchable campus events with category filters and an empty-results state
-- REST-backed sample notices with loading, error/retry, and refresh states
-- Expandable subject cards (illustrative sample data)
+- Notices screen with loading, error/retry, and refresh states, using the JSONPlaceholder demo API
+- Expandable subject cards using illustrative sample data
 - Student profile form with required-field validation
 - Shared saved-section state using Provider and `ChangeNotifier`
-- Animated bookmark feedback and a dashboard count of saved sections
-- Unit/widget tests for state transitions, profile validation, event search, and API responses
-- GitHub Actions workflow for `flutter analyze` and `flutter test`
+- Bookmark animation with fade, slide, and scale transitions
+- Dart language basics example executed by CI
+- Unit/widget tests for event filtering, profile validation, shared state, API response handling, navigation, and bookmark animation
+- GitHub Actions workflow for analysis, tests, and a Web release build
 
 ## Syllabus-to-project mapping
 
-| Lab topic / experiment | Campus Connect implementation | Status |
+| Official experiment | Implementation and evidence | Status / caveat |
 | --- | --- | --- |
-| 1. Flutter/Dart foundation | Flutter package manifest and app entry point | Implemented |
-| 2. Widgets and layouts | Material 3 dashboard, cards, lists, expansion tiles | Implemented |
-| 3. Responsive UI | `MediaQuery`, `LayoutBuilder`, `Wrap`, scrollable screens | Implemented |
-| 4. Navigation | Named routes, `Navigator.pushNamed`, back navigation | Implemented |
-| 5. State management | `setState`, Provider, `ChangeNotifier`, saved sections | Implemented; tests added |
-| 6. Custom widgets and themes | Reusable dashboard cards, bookmark action, Material 3 theme | Implemented |
-| 7. Forms and validation | Student profile form with required-field validators | Implemented; tests added |
-| 8. Animations | Animated bookmark icon using `AnimatedSwitcher` and `ScaleTransition` | Implemented |
-| 9. REST API | Typed HTTP client and FutureBuilder notices screen | Implemented; mock tests added |
-| 10. Unit/widget testing and debugging | Flutter widget/unit tests and CI workflow | Tests/workflow added; execution status pending |
+| 1(a). Install Flutter and Dart SDK | CI installs stable Flutter; local setup commands below | CI setup is automated; local machine setup is not verified here |
+| 1(b). Dart language basics | `flutter_app/tool/dart_basics.dart` | Passed in the last completed green CI run |
+| 2(a). Widgets including Text, Image, Container | Dashboard uses Text, a bundled Image asset, Container and Material components | Implemented |
+| 2(b). Row, Column, Stack layouts | Row on Events; Column on app screens; Stack on dashboard | Implemented |
+| 3(a–b). Responsive UI, media queries and breakpoints | `MediaQuery`, `LayoutBuilder`, `Wrap`, scrollable layouts | Implemented; physical-device/browser behavior not yet smoke-tested |
+| 4(a–b). Navigator and named routes | Named routes and Navigator actions in `lib/main.dart` | Implemented; navigation widget test |
+| 5(a–b). Stateful/stateless widgets and state management | `setState`, Provider, `ChangeNotifier` | Implemented; state tests |
+| 6(a–b). Custom widgets, themes and styles | Reusable bookmark action, dashboard cards, Material 3 theme | Implemented |
+| 7(a–b). Form fields, validation and error handling | Profile form with required-field validators | Implemented; widget tests |
+| 8(a–b). Animation framework; fade/slide animations | `AnimatedSwitcher` with fade, slide and scale transitions | Implemented; animation widget test |
+| 9(a–b). REST API and meaningful display | Typed HTTP client and asynchronous Notices UI | Client tests pass; live API/UI flow not end-to-end verified |
+| 10(a–b). Unit tests and debugging | Flutter tests, `flutter analyze`, CI logs and Web release build | Last completed run passed; latest asset-change run is pending |
 
-> Confirm the table against the latest official lab manual before submission. Do not describe the project as runtime-tested until the CI checks or local Flutter commands have passed.
+## Verification status
+
+- **Last completed successful CI run:** [Run #20](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40221893549), commit `055926c8d79369aaf2ae2b58127bf5acf3d4577c`.
+- That run reported **no analyzer issues**, passed the Dart basics example, passed **11 unit/widget test cases**, and built the Web release successfully.
+- **Current main commit:** [`0d4be8d`](https://github.com/Aditya-6286/Campus-Connect/commit/0d4be8d46842eae7554ce9da45e3c470ca5ea9e2), which adds the bundled banner image and an image-widget assertion. Its CI run is still in progress at the time of this update: [Run #21](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40222031795). Do not treat the current commit as verified until that run finishes successfully.
 
 ## Run the application
 
-The repository currently contains the Flutter source package. If the platform folders have not been generated yet, create the Android and Web runners once:
+The repository keeps the Flutter source package; Android/Web runners are generated in the CI workspace and are not committed. From the repository root:
 
 ```bash
 cd flutter_app
@@ -50,10 +58,11 @@ flutter create . --platforms=android,web
 flutter pub get
 flutter analyze
 flutter test
+flutter build web --release
 flutter run -d chrome
 ```
 
-You can also use an Android emulator/device after setting up the Android SDK. The Notices screen calls the public JSONPlaceholder demo API and therefore needs internet access. Events and Subjects currently use clearly labelled sample content.
+For Android execution, configure the Android SDK and launch an emulator or connect a device. A successful Web build does not by itself prove a browser/device smoke test was completed.
 
 ## Project documentation
 
@@ -62,9 +71,12 @@ You can also use an Android emulator/device after setting up the Android SDK. Th
 - [API notes](docs/api-contract.md)
 - [Project roadmap](docs/roadmap.md)
 
-## Important limitations before release
+## Limitations before final submission
 
-- Event and subject records are sample data; replace them with college-approved content.
-- The profile form validates fields and displays confirmation but does not yet persist profile data.
-- Notices use a public demo REST endpoint rather than an official college API.
-- Run the CI workflow and capture actual application screenshots before final submission.
+- Events and Subjects use sample data, not an official college data source.
+- Notices use the public JSONPlaceholder demo API, not an official college service; internet access is required.
+- Profile details are validated and confirmed in the UI but are not persisted.
+- Saved-section state is in-memory and resets when the app restarts.
+- Platform runners are generated in CI and are not tracked in the repository.
+- No genuine screenshots from a running browser/device have been captured yet.
+- Browser/device smoke testing and final validation of the latest commit are still required.
