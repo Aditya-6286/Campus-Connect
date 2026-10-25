@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'state/campus_state.dart';
 import 'screens/profile_page.dart';
 import 'screens/notices_page.dart';
+import 'screens/events_page.dart';
 
 void main() {
   runApp(
@@ -28,11 +29,7 @@ class CampusConnectApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const CampusHomePage(),
-        '/events': (context) => const CampusSectionPage(
-              title: 'Events',
-              icon: Icons.event,
-              description: 'Discover upcoming campus activities and programs.',
-            ),
+        '/events': (context) => const CampusEventsPage(),
         '/notices': (context) => const CampusNoticesPage(),
         '/subjects': (context) => const CampusSectionPage(
               title: 'Subjects',
