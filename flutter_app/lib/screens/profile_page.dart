@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/favorite_section_action.dart';
+
 class CampusProfilePage extends StatefulWidget {
   const CampusProfilePage({super.key});
 
@@ -42,7 +44,10 @@ class _CampusProfilePageState extends State<CampusProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Student Profile')),
+      appBar: AppBar(
+        title: const Text('Student Profile'),
+        actions: const [FavoriteSectionAction(section: 'Profile')],
+      ),
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
