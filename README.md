@@ -45,7 +45,7 @@ Campus Connect is a Flutter prototype that brings common student-facing campus i
 ## Verification status
 
 - **Latest Flutter source commit verified by CI:** [`985de8e`](https://github.com/Aditya-6286/Campus-Connect/commit/985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe), [Run #22](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40222193081) — **passed**.
-- Run #22 reported **no analyzer issues**, passed the Dart basics example, passed **11 unit/widget test cases**, and built the Web release successfully.
+- Run #22 reported **no analyzer issues**, passed the Dart basics example, passed **11 unit/widget test cases**, and built the Web release successfully. The build log also emitted a non-fatal font-manifest warning mentioning CupertinoIcons; it did not prevent the release bundle from being built.
 - The preceding banner-image commit failed with `Invalid image data`; the asset was replaced with a locally validated PNG in commit `985de8e`, and the new asset then passed the widget test and Web build. A real browser/device smoke test is still not recorded.
 
 ## Run the application

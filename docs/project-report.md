@@ -150,7 +150,7 @@ The table follows the ten CS506PC experiments listed in the official JNTUH R22 B
 | Run Dart language basics example | Passed |
 | `flutter analyze` | Passed — “No issues found!” |
 | `flutter test` | Passed — 11 unit/widget test cases reported successful |
-| `flutter build web --release` | Passed — Web release bundle built |
+| `flutter build web --release` | Passed — Web release bundle built; log included a non-fatal font-manifest warning mentioning CupertinoIcons |
 
 The 11 successful test cases covered event search and empty results, profile validation (invalid and valid submissions), saved-state toggling and notifications, bookmark fade/slide/scale transitions, dashboard navigation/shared state, API success/error/response-shape handling, and the dashboard Image widget after the asset correction.
 
