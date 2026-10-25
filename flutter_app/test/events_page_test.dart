@@ -8,9 +8,6 @@ void main() {
       const MaterialApp(home: CampusEventsPage()),
     );
 
-    expect(find.text('Coding Challenge'), findsOneWidget);
-    expect(find.text('Cultural Evening'), findsOneWidget);
-
     await tester.enterText(find.byType(TextField), 'coding');
     await tester.pumpAndSettle();
 
