@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'state/campus_state.dart';
 import 'screens/profile_page.dart';
+import 'screens/notices_page.dart';
 
 void main() {
   runApp(
@@ -32,11 +33,7 @@ class CampusConnectApp extends StatelessWidget {
               icon: Icons.event,
               description: 'Discover upcoming campus activities and programs.',
             ),
-        '/notices': (context) => const CampusSectionPage(
-              title: 'Notices',
-              icon: Icons.notifications,
-              description: 'Keep up with important college announcements.',
-            ),
+        '/notices': (context) => const CampusNoticesPage(),
         '/subjects': (context) => const CampusSectionPage(
               title: 'Subjects',
               icon: Icons.menu_book,
