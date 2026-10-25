@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/favorite_section_action.dart';
+
 class CampusEvent {
   const CampusEvent({
     required this.title,
@@ -88,7 +90,10 @@ class _CampusEventsPageState extends State<CampusEventsPage> {
     }).toList(growable: false);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Campus Events')),
+      appBar: AppBar(
+        title: const Text('Campus Events'),
+        actions: const [FavoriteSectionAction(section: 'Events')],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
