@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/favorite_section_action.dart';
+
 class CampusSubject {
   const CampusSubject({
     required this.code,
@@ -58,7 +60,10 @@ class CampusSubjectsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Subjects')),
+      appBar: AppBar(
+        title: const Text('Subjects'),
+        actions: const [FavoriteSectionAction(section: 'Subjects')],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
