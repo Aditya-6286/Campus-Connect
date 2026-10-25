@@ -6,6 +6,7 @@ import 'screens/profile_page.dart';
 import 'screens/notices_page.dart';
 import 'screens/events_page.dart';
 import 'screens/subjects_page.dart';
+import 'widgets/favorite_section_action.dart';
 
 void main() {
   runApp(
@@ -223,26 +224,7 @@ class CampusSectionPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        actions: [
-          Consumer<CampusState>(
-            builder: (context, campusState, child) {
-              final isFavorite = campusState.isFavorite(title);
-              return IconButton(
-                tooltip: isFavorite ? 'Remove saved section' : 'Save section',
-                onPressed: () => campusState.toggleFavorite(title),
-                icon: AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 220),
-                  transitionBuilder: (child, animation) =>
-                      ScaleTransition(scale: animation, child: child),
-                  child: Icon(
-                    isFavorite ? Icons.bookmark : Icons.bookmark_border,
-                    key: ValueKey<bool>(isFavorite),
-                  ),
-                ),
-              );
-            },
-          ),
-        ],
+        actions: [FavoriteSectionAction(section: title)],
       ),
       body: Center(
         child: Padding(
