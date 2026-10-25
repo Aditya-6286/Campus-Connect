@@ -15,6 +15,7 @@ void main() {
     );
 
     expect(find.text('Welcome to Campus Connect'), findsOneWidget);
+    expect(find.byType(Image), findsOneWidget);
 
     await tester.tap(find.text('Events').first);
     await tester.pumpAndSettle();

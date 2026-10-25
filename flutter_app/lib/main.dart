@@ -80,6 +80,17 @@ class CampusHomePage extends StatelessWidget {
                   'Your starting point for useful campus information.',
                 ),
                 const SizedBox(height: 20),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Image.asset(
+                    'assets/campus_connect_banner.png',
+                    width: double.infinity,
+                    height: 140,
+                    fit: BoxFit.cover,
+                    semanticLabel: 'Campus Connect campus banner',
+                  ),
+                ),
+                const SizedBox(height: 20),
                 Wrap(
                   spacing: 12,
                   runSpacing: 12,
