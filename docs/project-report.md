@@ -9,7 +9,7 @@
 **Repository:** https://github.com/Aditya-6286/Campus-Connect  
 **Syllabus reference:** [Official JNTUH R22 B.Tech CSE syllabus, CS506PC, page 87](https://jntuh.ac.in/uploads/academics/R22B.Tech.CSECourseStructureSyllabus2.pdf)
 
-> **Verification note:** CI passed for commit `055926c8d79369aaf2ae2b58127bf5acf3d4577c` (run #20). The current main commit `0d4be8d46842eae7554ce9da45e3c470ca5ea9e2` adds a bundled banner image and an image-widget assertion; its run #21 was still in progress when this report was updated. Results from run #20 must not be misrepresented as verification of the newer commit. No physical-device or real-browser smoke test has been recorded, and no genuine app screenshots have been captured.
+> **Verification note:** CI passed for commit `055926c8d79369aaf2ae2b58127bf5acf3d4577c` (run #20). The first banner-image commit failed run #21 because Flutter reported `Invalid image data`; the PNG was replaced in current main commit `985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe`. Run #22 for the current commit was still in progress at report-update time. Results from run #20 must not be misrepresented as verification of the newer asset. No physical-device or real-browser smoke test has been recorded, and no genuine app screenshots have been captured.
 
 ## 1. Abstract
 
@@ -156,9 +156,9 @@ The 11 successful test cases covered event search and empty results, profile val
 
 ### Current commit status
 
-Current main commit: [`0d4be8d46842eae7554ce9da45e3c470ca5ea9e2`](https://github.com/Aditya-6286/Campus-Connect/commit/0d4be8d46842eae7554ce9da45e3c470ca5ea9e2)
+Current main commit: [`985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe`](https://github.com/Aditya-6286/Campus-Connect/commit/985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe)
 
-Its workflow run is [Run #21](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40222031795). It was still in progress at report-update time. This run includes the bundled banner asset and a widget assertion for the Image widget; do not infer its outcome from the preceding green run.
+The first banner asset failed run #21 with `Invalid image data`. The asset was replaced with a locally validated PNG. Its workflow run is [Run #22](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40222193081), which was still in progress at report-update time. Do not infer the current commit's outcome from the preceding green run.
 
 ### Not yet verified
 

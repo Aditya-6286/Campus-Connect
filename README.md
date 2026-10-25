@@ -46,7 +46,7 @@ Campus Connect is a Flutter prototype that brings common student-facing campus i
 
 - **Last completed successful CI run:** [Run #20](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40221893549), commit `055926c8d79369aaf2ae2b58127bf5acf3d4577c`.
 - That run reported **no analyzer issues**, passed the Dart basics example, passed **11 unit/widget test cases**, and built the Web release successfully.
-- **Current main commit:** [`0d4be8d`](https://github.com/Aditya-6286/Campus-Connect/commit/0d4be8d46842eae7554ce9da45e3c470ca5ea9e2), which adds the bundled banner image and an image-widget assertion. Its CI run is still in progress at the time of this update: [Run #21](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40222031795). Do not treat the current commit as verified until that run finishes successfully.
+- **Current main commit:** [`985de8e`](https://github.com/Aditya-6286/Campus-Connect/commit/985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe), which replaces the invalid banner PNG bytes. The previous image commit failed its widget test with `Invalid image data`; the asset was replaced with a locally validated PNG. CI for the current commit is still in progress: [Run #22](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40222193081). Do not treat the current commit as verified until that run finishes successfully.
 
 ## Run the application
 
