@@ -18,8 +18,10 @@ class FavoriteSectionAction extends StatelessWidget {
           onPressed: () => campusState.toggleFavorite(section),
           icon: AnimatedSwitcher(
             duration: const Duration(milliseconds: 220),
-            transitionBuilder: (child, animation) =>
-                ScaleTransition(scale: animation, child: child),
+            transitionBuilder: (child, animation) => FadeTransition(
+              opacity: animation,
+              child: ScaleTransition(scale: animation, child: child),
+            ),
             child: Icon(
               isFavorite ? Icons.bookmark : Icons.bookmark_border,
               key: ValueKey<bool>(isFavorite),
