@@ -5,6 +5,7 @@ import 'state/campus_state.dart';
 import 'screens/profile_page.dart';
 import 'screens/notices_page.dart';
 import 'screens/events_page.dart';
+import 'screens/subjects_page.dart';
 
 void main() {
   runApp(
@@ -31,11 +32,7 @@ class CampusConnectApp extends StatelessWidget {
         '/': (context) => const CampusHomePage(),
         '/events': (context) => const CampusEventsPage(),
         '/notices': (context) => const CampusNoticesPage(),
-        '/subjects': (context) => const CampusSectionPage(
-              title: 'Subjects',
-              icon: Icons.menu_book,
-              description: 'Access your subjects and learning information.',
-            ),
+        '/subjects': (context) => const CampusSubjectsPage(),
         '/profile': (context) => const CampusProfilePage(),
       },
     );
