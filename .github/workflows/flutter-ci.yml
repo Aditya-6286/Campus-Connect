@@ -29,9 +29,13 @@ jobs:
         with:
           channel: stable
           cache: true
+      - name: Generate Android and Web runners
+        run: flutter create . --platforms=android,web
       - name: Install dependencies
         run: flutter pub get
       - name: Analyze Dart and Flutter source
         run: flutter analyze
       - name: Run unit and widget tests
         run: flutter test
+      - name: Build Web release
+        run: flutter build web --release
