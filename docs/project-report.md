@@ -9,7 +9,7 @@
 **Repository:** https://github.com/Aditya-6286/Campus-Connect  
 **Syllabus reference:** [Official JNTUH R22 B.Tech CSE syllabus, CS506PC, page 87](https://jntuh.ac.in/uploads/academics/R22B.Tech.CSECourseStructureSyllabus2.pdf)
 
-> **Verification note:** CI passed for commit `055926c8d79369aaf2ae2b58127bf5acf3d4577c` (run #20). The first banner-image commit failed run #21 because Flutter reported `Invalid image data`; the PNG was replaced in current main commit `985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe`. Run #22 for the current commit was still in progress at report-update time. Results from run #20 must not be misrepresented as verification of the newer asset. No physical-device or real-browser smoke test has been recorded, and no genuine app screenshots have been captured.
+> **Verification note:** The latest Flutter source commit `985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe` passed [GitHub Actions run #22](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40222193081): Dart basics, analysis, 11 unit/widget tests, and Web release build all succeeded. The immediately preceding banner-image commit failed with `Invalid image data`; the corrected PNG passed the subsequent test and build. No physical-device or real-browser smoke test has been recorded, and no genuine app screenshots have been captured.
 
 ## 1. Abstract
 
@@ -123,7 +123,7 @@ The table follows the ten CS506PC experiments listed in the official JNTUH R22 B
 | --- | --- | --- |
 | 1(a). Install Flutter and Dart SDK | CI installs stable Flutter; local setup commands are documented | CI setup verified on run #20; local machine installation not verified |
 | 1(b). Dart language basics | `tool/dart_basics.dart` | Passed on run #20 |
-| 2(a). Flutter widgets (Text, Image, Container, etc.) | Dashboard includes Text, Container, bundled Image asset and Material components | Implemented in current commit; CI verification pending |
+| 2(a). Flutter widgets (Text, Image, Container, etc.) | Dashboard includes Text, Container, bundled Image asset and Material components | Implemented; Image asset passed CI run #22 |
 | 2(b). Row, Column, Stack layouts | Row on Events, Column on screens, Stack on dashboard | Implemented |
 | 3(a–b). Responsive UI, media queries and breakpoints | MediaQuery, LayoutBuilder, Wrap, scrollable layouts | Implemented; no physical-device/browser smoke test recorded |
 | 4(a–b). Navigator and named routes | Named routes and Navigator actions | Implemented; navigation test passed on run #20 |
@@ -136,10 +136,10 @@ The table follows the ten CS506PC experiments listed in the official JNTUH R22 B
 
 ## 9. Testing and verification evidence
 
-### Last completed successful run
+### Latest successful run
 
-**Run #20:** [GitHub Actions](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40221893549)  
-**Validated commit:** `055926c8d79369aaf2ae2b58127bf5acf3d4577c`
+**Run #22:** [GitHub Actions](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40222193081)  
+**Validated Flutter source commit:** `985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe`
 
 | Check | Recorded result |
 | --- | --- |
@@ -152,13 +152,9 @@ The table follows the ten CS506PC experiments listed in the official JNTUH R22 B
 | `flutter test` | Passed — 11 unit/widget test cases reported successful |
 | `flutter build web --release` | Passed — Web release bundle built |
 
-The 11 successful test cases covered event search and empty results, profile validation (invalid and valid submissions), saved-state toggling and notifications, bookmark fade/slide/scale transitions, dashboard navigation/shared state, and API success/error/response-shape handling.
+The 11 successful test cases covered event search and empty results, profile validation (invalid and valid submissions), saved-state toggling and notifications, bookmark fade/slide/scale transitions, dashboard navigation/shared state, API success/error/response-shape handling, and the dashboard Image widget after the asset correction.
 
-### Current commit status
-
-Current main commit: [`985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe`](https://github.com/Aditya-6286/Campus-Connect/commit/985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe)
-
-The first banner asset failed run #21 with `Invalid image data`. The asset was replaced with a locally validated PNG. Its workflow run is [Run #22](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40222193081), which was still in progress at report-update time. Do not infer the current commit's outcome from the preceding green run.
+The first banner asset failed run #21 with `Invalid image data`; the PNG was replaced in commit `985de8e`. Run #22 then passed the Image widget test and Web release build, so the corrected Flutter source commit is CI-green.
 
 ### Not yet verified
 
@@ -196,4 +192,4 @@ For Android, configure the Android SDK and start an emulator or connect a device
 
 ## 12. Conclusion
 
-Campus Connect combines the ten confirmed CS506PC lab themes in a student-facing Flutter prototype: widgets/layouts, responsive design, navigation, state, reusable widgets/themes, validation, animation, REST consumption, and tests. The last completed CI run passed analysis, 11 tests, the Dart basics example, and the Web release build. The newest banner-image commit still requires a green CI run and browser/device smoke testing before the project should be considered fully verified.
+Campus Connect combines the ten confirmed CS506PC lab themes in a student-facing Flutter prototype: widgets/layouts, responsive design, navigation, state, reusable widgets/themes, validation, animation, REST consumption, and tests. The latest Flutter source commit passed analysis, 11 tests, the Dart basics example, and the Web release build. Browser/device smoke testing and screenshots remain outstanding before the project should be described as fully validated for final submission.
