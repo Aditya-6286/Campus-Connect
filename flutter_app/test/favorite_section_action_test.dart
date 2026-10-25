@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  testWidgets('bookmark change uses fade and scale transitions',
+  testWidgets('bookmark change uses fade, slide, and scale transitions',
       (tester) async {
     await tester.pumpWidget(
       ChangeNotifierProvider(
@@ -27,6 +27,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 110));
 
     expect(find.byType(FadeTransition), findsWidgets);
+    expect(find.byType(SlideTransition), findsWidgets);
     expect(find.byType(ScaleTransition), findsWidgets);
 
     await tester.pumpAndSettle();

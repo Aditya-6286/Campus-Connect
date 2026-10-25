@@ -20,7 +20,13 @@ class FavoriteSectionAction extends StatelessWidget {
             duration: const Duration(milliseconds: 220),
             transitionBuilder: (child, animation) => FadeTransition(
               opacity: animation,
-              child: ScaleTransition(scale: animation, child: child),
+              child: SlideTransition(
+                position: Tween<Offset>(
+                  begin: const Offset(0.08, 0),
+                  end: Offset.zero,
+                ).animate(animation),
+                child: ScaleTransition(scale: animation, child: child),
+              ),
             ),
             child: Icon(
               isFavorite ? Icons.bookmark : Icons.bookmark_border,
