@@ -35,6 +35,8 @@ jobs:
         run: rm -f test/widget_test.dart
       - name: Install dependencies
         run: flutter pub get
+      - name: Run Dart language basics example
+        run: dart run tool/dart_basics.dart
       - name: Analyze Dart and Flutter source
         run: flutter analyze
       - name: Run unit and widget tests

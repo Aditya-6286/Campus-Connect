@@ -118,7 +118,48 @@ class CampusHomePage extends StatelessWidget {
                 Consumer<CampusState>(
                   builder: (context, campusState, child) => Card(
                     child: ListTile(
-                      leading: const Icon(Icons.bookmark_added_outlined),
+                      leading: SizedBox(
+                        width: 40,
+                        height: 40,
+                        child: Stack(
+                          clipBehavior: Clip.none,
+                          children: [
+                            const Align(
+                              alignment: Alignment.center,
+                              child: Icon(Icons.bookmark_added_outlined),
+                            ),
+                            if (campusState.favoriteSections.isNotEmpty)
+                              Positioned(
+                                top: 0,
+                                right: 0,
+                                child: Container(
+                                  constraints: const BoxConstraints(
+                                    minWidth: 16,
+                                    minHeight: 16,
+                                  ),
+                                  padding: const EdgeInsets.all(3),
+                                  decoration: BoxDecoration(
+                                    color: Theme.of(context).colorScheme.primary,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Text(
+                                    '${campusState.favoriteSections.length}',
+                                    textAlign: TextAlign.center,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .labelSmall
+                                        ?.copyWith(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onPrimary,
+                                          fontSize: 9,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
                       title: const Text('Saved sections'),
                       subtitle: Text(
                         '${campusState.favoriteSections.length} section(s) saved',
