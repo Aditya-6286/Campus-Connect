@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'state/campus_state.dart';
 
 void main() {
-  runApp(const CampusConnectApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => CampusState(),
+      child: const CampusConnectApp(),
+    ),
+  );
 }
 
 class CampusConnectApp extends StatelessWidget {
@@ -118,6 +126,18 @@ class CampusHomePage extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 24),
+                Consumer<CampusState>(
+                  builder: (context, campusState, child) => Card(
+                    child: ListTile(
+                      leading: const Icon(Icons.bookmark_added_outlined),
+                      title: const Text('Saved sections'),
+                      subtitle: Text(
+                        '${campusState.favoriteSections.length} section(s) saved',
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
                 Text(
                   'Quick access',
                   style: Theme.of(context).textTheme.titleLarge,
@@ -213,7 +233,23 @@ class CampusSectionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
+      appBar: AppBar(
+        title: Text(title),
+        actions: [
+          Consumer<CampusState>(
+            builder: (context, campusState, child) {
+              final isFavorite = campusState.isFavorite(title);
+              return IconButton(
+                tooltip: isFavorite ? 'Remove saved section' : 'Save section',
+                onPressed: () => campusState.toggleFavorite(title),
+                icon: Icon(
+                  isFavorite ? Icons.bookmark : Icons.bookmark_border,
+                ),
+              );
+            },
+          ),
+        ],
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(24),
