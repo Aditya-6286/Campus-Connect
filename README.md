@@ -40,13 +40,13 @@ Campus Connect is a Flutter prototype that brings common student-facing campus i
 | 7(a–b). Form fields, validation and error handling | Profile form with required-field validators | Implemented; widget tests |
 | 8(a–b). Animation framework; fade/slide animations | `AnimatedSwitcher` with fade, slide and scale transitions | Implemented; animation widget test |
 | 9(a–b). REST API and meaningful display | Typed HTTP client and asynchronous Notices UI | Client tests pass; live API/UI flow not end-to-end verified |
-| 10(a–b). Unit tests and debugging | Flutter tests, `flutter analyze`, CI logs and Web release build | Run #23 passed on current `main` head `dd45201`; Flutter app source remains at validated commit `985de8e` |
+| 10(a–b). Unit tests and debugging | Flutter tests, `flutter analyze`, CI logs and Web release build | Run #24 passed on commit `3b84966`; Flutter app source remains at `985de8e` |
 
 ## Verification status
 
-- **Latest successful CI run:** [Run #23](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40225197551) — **passed** on current `main` head [`dd45201`](https://github.com/Aditya-6286/Campus-Connect/commit/dd45201a3c38df29ea69dea1f90bcc83ca28bf6f). The Flutter app source itself remains at [`985de8e`](https://github.com/Aditya-6286/Campus-Connect/commit/985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe).
-- Run #23 reported **no analyzer issues**, passed the Dart basics example, passed **11 unit/widget test cases**, and built the Web release successfully. Non-blocking log messages included a WebAssembly dry-run advisory, a font-manifest warning mentioning CupertinoIcons, and a GitHub Actions Node.js deprecation notice for `actions/checkout@v4`; none failed the job.
-- The preceding banner-image commit failed with `Invalid image data`; the asset was replaced in commit `985de8e`, and the corrected asset passed the widget test and Web build. Run #23 validates the current `main` head; the Flutter app source remains unchanged since `985de8e`. A real browser/device smoke test is not recorded.
+- **Latest successful CI run:** [Run #24](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40229972785) — **passed** on commit [`3b84966`](https://github.com/Aditya-6286/Campus-Connect/commit/3b84966139df7b97b9b44c5a955ba9be6d715431). This subsequent update changes only `README.md` and `docs/project-report.md`; the Flutter source remains at [`985de8e`](https://github.com/Aditya-6286/Campus-Connect/commit/985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe).
+- Run #24 reported **no analyzer issues**, passed the Dart basics example, passed **11 unit/widget test cases**, and built the Web release successfully. Non-blocking log messages included a WebAssembly dry-run advisory, a font-manifest warning mentioning CupertinoIcons, and a GitHub Actions Node.js deprecation notice for `actions/checkout@v4`; none failed the job.
+- The preceding banner-image commit failed with `Invalid image data`; the asset was replaced in commit `985de8e`, and the corrected asset passed the widget test and Web build. Run #24 validates the Flutter source and development log at commit `3b84966`; this follow-up changes only root-level documentation. The Flutter source remains unchanged since `985de8e`. A real browser/device smoke test is not recorded.
 
 ## Run the application
 

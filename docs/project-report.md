@@ -9,7 +9,7 @@
 **Repository:** https://github.com/Aditya-6286/Campus-Connect  
 **Syllabus reference:** [Official JNTUH R22 B.Tech CSE syllabus, CS506PC, page 87](https://jntuh.ac.in/uploads/academics/R22B.Tech.CSECourseStructureSyllabus2.pdf)
 
-> **Verification note (updated 26 October 2026):** [GitHub Actions run #23](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40225197551) passed on current `main` head `dd45201a3c38df29ea69dea1f90bcc83ca28bf6f`: the Dart basics example, `flutter analyze` (no issues), all 11 unit/widget tests, and `flutter build web --release` succeeded. The Flutter app source remains at commit `985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe`, where the corrected banner PNG was validated. Run #23 also exercised the current documentation state. Non-blocking build/action notices are recorded below. No physical-device or real-browser smoke test has been recorded, and no genuine app screenshots have been captured.
+> **Verification note (updated 26 October 2026):** [GitHub Actions run #24](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40229972785) passed on commit `3b84966139df7b97b9b44c5a955ba9be6d715431`: the Dart basics example, `flutter analyze` (no issues), all 11 unit/widget tests, and `flutter build web --release` succeeded. The Flutter app source remains at commit `985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe`, where the corrected banner PNG was validated. The current follow-up changes only README/report documentation, with no Flutter source or workflow changes. Non-blocking build/action notices are recorded below. No physical-device or real-browser smoke test has been recorded, and no genuine app screenshots have been captured.
 
 ## 1. Abstract
 
@@ -132,15 +132,15 @@ The table follows the ten CS506PC experiments listed in the official JNTUH R22 B
 | 7(a–b). Form fields, validation and error handling | Profile form and required-field validators | Implemented; profile tests passed on run #22 |
 | 8(a–b). Animation framework; fade/slide animations | FadeTransition, SlideTransition, ScaleTransition | Implemented; animation test passed on run #22 |
 | 9(a–b). REST API and meaningful UI display | Typed HTTP client and asynchronous Notices screen | API client tests passed on run #22; live network/UI flow not verified |
-| 10(a–b). Unit tests and debugging | Flutter tests, analyzer, CI logs, Web release build | Run #23 passed on current `main` head `dd45201`; app source remains at `985de8e` |
+| 10(a–b). Unit tests and debugging | Flutter tests, analyzer, CI logs, Web release build | Run #24 passed on commit `3b84966`; app source remains at `985de8e` |
 
 ## 9. Testing and verification evidence
 
 ### Latest successful run
 
-**Run #23:** [GitHub Actions](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40225197551)  
-**Validated `main` head:** `dd45201a3c38df29ea69dea1f90bcc83ca28bf6f`  
-**Flutter app source commit:** `985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe` (unchanged app source; the run validates the current repository head)
+**Run #24:** [GitHub Actions](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40229972785)  
+**Validated commit:** `3b84966139df7b97b9b44c5a955ba9be6d715431`  
+**Flutter app source commit:** `985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe` (unchanged app source; the current follow-up changes only README/report documentation)
 
 | Check | Recorded result |
 | --- | --- |
@@ -155,7 +155,7 @@ The table follows the ten CS506PC experiments listed in the official JNTUH R22 B
 
 The 11 successful test cases covered event search and empty results, profile validation (invalid and valid submissions), saved-state toggling and notifications, bookmark fade/slide/scale transitions, dashboard navigation/shared state, API success/error/response-shape handling, and the dashboard Image widget after the asset correction.
 
-The first banner asset failed run #21 with `Invalid image data`; the PNG was replaced in commit `985de8e`. Runs #22 and #23 then passed the Image widget test and Web release build, so the corrected Flutter source and current repository head are CI-green.
+The first banner asset failed run #21 with `Invalid image data`; the PNG was replaced in commit `985de8e`. Runs #22, #23, and #24 passed the Image widget test and Web release build, so the corrected Flutter source and validated repository state are CI-green.
 
 ### Not yet verified
 
@@ -186,11 +186,11 @@ For Android, configure the Android SDK and start an emulator or connect a device
 - Replace JSONPlaceholder with an official college API if one becomes available.
 - Replace Events and Subjects sample records with approved campus data.
 - Persist profile information and saved sections using an appropriate storage layer.
-- Keep CI green after any future Flutter source/workflow change; Run #23 completed successfully on the current `main` head.
+- Keep CI green after any future Flutter source/workflow change; Run #24 completed successfully for commit `3b84966`.
 - Perform browser and Android device smoke tests.
 - Capture genuine screenshots from the running app and insert them in the report/README.
 - Review accessibility and responsive behavior on representative screen sizes.
 
 ## 12. Conclusion
 
-Campus Connect combines the ten confirmed CS506PC lab themes in a student-facing Flutter prototype: widgets/layouts, responsive design, navigation, state, reusable widgets/themes, validation, animation, REST consumption, and tests. The current `main` head (`dd45201`) passed analysis, all 11 tests, the Dart basics example, and the Web release build in run #23; the Flutter app source remains at `985de8e`. Browser/device smoke testing and genuine screenshots remain outstanding, so the project is CI-validated but not yet fully validated on a running device/browser.
+Campus Connect combines the ten confirmed CS506PC lab themes in a student-facing Flutter prototype: widgets/layouts, responsive design, navigation, state, reusable widgets/themes, validation, animation, REST consumption, and tests. Run #24 passed analysis, all 11 tests, the Dart basics example, and the Web release build for commit `3b84966`; the Flutter app source remains at `985de8e`. The current follow-up is documentation-only. Browser/device smoke testing and genuine screenshots remain outstanding, so the project is CI-validated but not yet fully validated on a running device/browser.
