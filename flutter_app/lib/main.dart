@@ -11,6 +11,10 @@ class CampusConnectApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Campus Connect',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2457C5)),
+        useMaterial3: true,
+      ),
       initialRoute: '/',
       routes: {
         '/': (context) => const CampusHomePage(),
@@ -47,7 +51,16 @@ class CampusHomePage extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Campus Connect')),
+      appBar: AppBar(
+        title: const Text('Campus Connect'),
+        actions: [
+          IconButton(
+            tooltip: 'Open profile',
+            onPressed: () => Navigator.pushNamed(context, '/profile'),
+            icon: const Icon(Icons.account_circle_outlined),
+          ),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: LayoutBuilder(
@@ -56,8 +69,7 @@ class CampusHomePage extends StatelessWidget {
                 ? (constraints.maxWidth - 12) / 2
                 : (constraints.maxWidth - 36) / 4;
 
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            return ListView(
               children: [
                 Text(
                   'Welcome to Campus Connect',
@@ -77,29 +89,57 @@ class CampusHomePage extends StatelessWidget {
                   children: [
                     _InfoCard(
                       title: 'Events',
+                      subtitle: 'Campus activities',
                       icon: Icons.event,
                       width: cardWidth,
                       routeName: '/events',
                     ),
                     _InfoCard(
                       title: 'Notices',
+                      subtitle: 'College updates',
                       icon: Icons.notifications,
                       width: cardWidth,
                       routeName: '/notices',
                     ),
                     _InfoCard(
                       title: 'Subjects',
+                      subtitle: 'Learning resources',
                       icon: Icons.menu_book,
                       width: cardWidth,
                       routeName: '/subjects',
                     ),
                     _InfoCard(
                       title: 'Profile',
+                      subtitle: 'Your account',
                       icon: Icons.person,
                       width: cardWidth,
                       routeName: '/profile',
                     ),
                   ],
+                ),
+                const SizedBox(height: 24),
+                Text(
+                  'Quick access',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(height: 8),
+                Card(
+                  child: ListTile(
+                    leading: const Icon(Icons.campaign_outlined),
+                    title: const Text('Latest notices'),
+                    subtitle: const Text('Open campus announcements'),
+                    trailing: const Icon(Icons.chevron_right),
+                    onTap: () => Navigator.pushNamed(context, '/notices'),
+                  ),
+                ),
+                Card(
+                  child: ListTile(
+                    leading: const Icon(Icons.calendar_month_outlined),
+                    title: const Text('Upcoming events'),
+                    subtitle: const Text('Explore campus activities'),
+                    trailing: const Icon(Icons.chevron_right),
+                    onTap: () => Navigator.pushNamed(context, '/events'),
+                  ),
                 ),
               ],
             );
@@ -112,12 +152,14 @@ class CampusHomePage extends StatelessWidget {
 
 class _InfoCard extends StatelessWidget {
   final String title;
+  final String subtitle;
   final IconData icon;
   final double width;
   final String routeName;
 
   const _InfoCard({
     required this.title,
+    required this.subtitle,
     required this.icon,
     required this.width,
     required this.routeName,
@@ -128,15 +170,25 @@ class _InfoCard extends StatelessWidget {
     return SizedBox(
       width: width,
       child: Card(
+        clipBehavior: Clip.antiAlias,
         child: InkWell(
           onTap: () => Navigator.pushNamed(context, routeName),
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Icon(icon, size: 32),
-                const SizedBox(height: 8),
-                Text(title),
+                const SizedBox(height: 12),
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  subtitle,
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
               ],
             ),
           ),
@@ -177,9 +229,10 @@ class CampusSectionPage extends StatelessWidget {
               const SizedBox(height: 8),
               Text(description, textAlign: TextAlign.center),
               const SizedBox(height: 24),
-              ElevatedButton(
+              ElevatedButton.icon(
                 onPressed: () => Navigator.pop(context),
-                child: const Text('Back to Home'),
+                icon: const Icon(Icons.arrow_back),
+                label: const Text('Back to Home'),
               ),
             ],
           ),
