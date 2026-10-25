@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'state/campus_state.dart';
+import 'screens/profile_page.dart';
 
 void main() {
   runApp(
@@ -41,11 +42,7 @@ class CampusConnectApp extends StatelessWidget {
               icon: Icons.menu_book,
               description: 'Access your subjects and learning information.',
             ),
-        '/profile': (context) => const CampusSectionPage(
-              title: 'Profile',
-              icon: Icons.person,
-              description: 'View your Campus Connect profile.',
-            ),
+        '/profile': (context) => const CampusProfilePage(),
       },
     );
   }
