@@ -11,7 +11,30 @@ class CampusConnectApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Campus Connect',
-      home: const CampusHomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const CampusHomePage(),
+        '/events': (context) => const CampusSectionPage(
+              title: 'Events',
+              icon: Icons.event,
+              description: 'Discover upcoming campus activities and programs.',
+            ),
+        '/notices': (context) => const CampusSectionPage(
+              title: 'Notices',
+              icon: Icons.notifications,
+              description: 'Keep up with important college announcements.',
+            ),
+        '/subjects': (context) => const CampusSectionPage(
+              title: 'Subjects',
+              icon: Icons.menu_book,
+              description: 'Access your subjects and learning information.',
+            ),
+        '/profile': (context) => const CampusSectionPage(
+              title: 'Profile',
+              icon: Icons.person,
+              description: 'View your Campus Connect profile.',
+            ),
+      },
     );
   }
 }
@@ -24,9 +47,7 @@ class CampusHomePage extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Campus Connect'),
-      ),
+      appBar: AppBar(title: const Text('Campus Connect')),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: LayoutBuilder(
@@ -58,21 +79,25 @@ class CampusHomePage extends StatelessWidget {
                       title: 'Events',
                       icon: Icons.event,
                       width: cardWidth,
+                      routeName: '/events',
                     ),
                     _InfoCard(
                       title: 'Notices',
                       icon: Icons.notifications,
                       width: cardWidth,
+                      routeName: '/notices',
                     ),
                     _InfoCard(
                       title: 'Subjects',
                       icon: Icons.menu_book,
                       width: cardWidth,
+                      routeName: '/subjects',
                     ),
                     _InfoCard(
                       title: 'Profile',
                       icon: Icons.person,
                       width: cardWidth,
+                      routeName: '/profile',
                     ),
                   ],
                 ),
@@ -89,11 +114,13 @@ class _InfoCard extends StatelessWidget {
   final String title;
   final IconData icon;
   final double width;
+  final String routeName;
 
   const _InfoCard({
     required this.title,
     required this.icon,
     required this.width,
+    required this.routeName,
   });
 
   @override
@@ -101,13 +128,59 @@ class _InfoCard extends StatelessWidget {
     return SizedBox(
       width: width,
       child: Card(
+        child: InkWell(
+          onTap: () => Navigator.pushNamed(context, routeName),
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                Icon(icon, size: 32),
+                const SizedBox(height: 8),
+                Text(title),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CampusSectionPage extends StatelessWidget {
+  final String title;
+  final IconData icon;
+  final String description;
+
+  const CampusSectionPage({
+    super.key,
+    required this.title,
+    required this.icon,
+    required this.description,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(title)),
+      body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(24),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(icon, size: 32),
+              Icon(icon, size: 56),
+              const SizedBox(height: 16),
+              Text(
+                title,
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
               const SizedBox(height: 8),
-              Text(title),
+              Text(description, textAlign: TextAlign.center),
+              const SizedBox(height: 24),
+              ElevatedButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Back to Home'),
+              ),
             ],
           ),
         ),
