@@ -1,10 +1,15 @@
 import 'package:campus_connect/screens/profile_page.dart';
+import 'package:campus_connect/state/campus_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   Widget buildTestApp() {
-    return const MaterialApp(home: CampusProfilePage());
+    return ChangeNotifierProvider(
+      create: (_) => CampusState(),
+      child: const MaterialApp(home: CampusProfilePage()),
+    );
   }
 
   group('CampusProfilePage validation', () {
