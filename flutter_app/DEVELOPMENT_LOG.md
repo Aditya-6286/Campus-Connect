@@ -39,7 +39,7 @@ Experiment mapping in the README and project report is aligned to the official J
 ### Verification status
 
 - Source files and commit history have been checked on GitHub.
-- GitHub Actions run [#22](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40222193081) passed for Flutter source commit `985de8e99aa0e6c7d2dc9e8337d460f2f07c6bbe`: Dart basics example, `flutter analyze` (no issues), 11 unit/widget tests, and `flutter build web --release` all succeeded. Later `main` commits only changed documentation.
+- GitHub Actions run [#23](https://github.com/Aditya-6286/Campus-Connect/actions/runs/40225197551) passed on current `main` head `dd45201a3c38df29ea69dea1f90bcc83ca28bf6f`: Dart basics example, `flutter analyze` (no issues), 11 unit/widget tests, and `flutter build web --release` all succeeded. The Flutter app source remains at `985de8e`; no browser/device smoke test or genuine screenshots are recorded.
 - Browser/device launch, responsive smoke testing on real viewports, live API/UI end-to-end behavior, and genuine screenshots are **not yet confirmed**.
 - The repository contains the Flutter source package; Android/Web runners are generated in CI and are not committed. Local runners may be generated with `flutter create . --platforms=android,web` inside `flutter_app/`.
 
