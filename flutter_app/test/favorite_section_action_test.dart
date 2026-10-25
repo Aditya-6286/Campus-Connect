@@ -10,10 +10,10 @@ void main() {
     await tester.pumpWidget(
       ChangeNotifierProvider(
         create: (_) => CampusState(),
-        child: const MaterialApp(
+        child: MaterialApp(
           home: Scaffold(
             appBar: AppBar(
-              actions: [FavoriteSectionAction(section: 'Events')],
+              actions: [const FavoriteSectionAction(section: 'Events')],
             ),
           ),
         ),
