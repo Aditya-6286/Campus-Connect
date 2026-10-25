@@ -239,8 +239,14 @@ class CampusSectionPage extends StatelessWidget {
               return IconButton(
                 tooltip: isFavorite ? 'Remove saved section' : 'Save section',
                 onPressed: () => campusState.toggleFavorite(title),
-                icon: Icon(
-                  isFavorite ? Icons.bookmark : Icons.bookmark_border,
+                icon: AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 220),
+                  transitionBuilder: (child, animation) =>
+                      ScaleTransition(scale: animation, child: child),
+                  child: Icon(
+                    isFavorite ? Icons.bookmark : Icons.bookmark_border,
+                    key: ValueKey<bool>(isFavorite),
+                  ),
                 ),
               );
             },
