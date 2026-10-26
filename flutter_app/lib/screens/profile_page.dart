@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/campus_bottom_navigation.dart';
 
 import '../widgets/favorite_section_action.dart';
 
@@ -44,6 +45,7 @@ class _CampusProfilePageState extends State<CampusProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const CampusBottomNavigation(),
       appBar: AppBar(
         title: const Text('Student Profile'),
         actions: const [FavoriteSectionAction(section: 'Profile')],
