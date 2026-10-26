@@ -55,7 +55,7 @@ class _CampusProfilePageState extends State<CampusProfilePage> {
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 520),
             child: ListView(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 100),
               children: [
                 const Icon(Icons.account_circle_outlined, size: 64),
                 const SizedBox(height: 12),
