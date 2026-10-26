@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/campus_bottom_navigation.dart';
 
 import '../widgets/favorite_section_action.dart';
 
@@ -81,6 +82,7 @@ class _CampusFacultyPageState extends State<CampusFacultyPage> {
         member.department.toLowerCase().contains(query)).toList();
 
     return Scaffold(
+      bottomNavigationBar: const CampusBottomNavigation(),
       appBar: AppBar(
         title: const Text('Faculty Directory'),
         actions: const [FavoriteSectionAction(section: 'Faculty')],
