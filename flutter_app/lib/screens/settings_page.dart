@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../widgets/campus_bottom_navigation.dart';
 
 import '../state/campus_state.dart';
 
@@ -11,6 +12,7 @@ class CampusSettingsPage extends StatelessWidget {
     final campusState = context.watch<CampusState>();
 
     return Scaffold(
+      bottomNavigationBar: const CampusBottomNavigation(),
       appBar: AppBar(title: const Text('Settings')),
       body: ListView(
         padding: const EdgeInsets.all(16),
