@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/campus_bottom_navigation.dart';
 
 import '../widgets/favorite_section_action.dart';
 
@@ -90,6 +91,7 @@ class _CampusEventsPageState extends State<CampusEventsPage> {
     }).toList(growable: false);
 
     return Scaffold(
+      bottomNavigationBar: const CampusBottomNavigation(),
       appBar: AppBar(
         title: const Text('Campus Events'),
         actions: const [FavoriteSectionAction(section: 'Events')],
