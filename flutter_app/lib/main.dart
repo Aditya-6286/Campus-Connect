@@ -6,6 +6,8 @@ import 'screens/profile_page.dart';
 import 'screens/notices_page.dart';
 import 'screens/events_page.dart';
 import 'screens/subjects_page.dart';
+import 'screens/faculty_page.dart';
+import 'screens/settings_page.dart';
 import 'widgets/favorite_section_action.dart';
 
 void main() {
@@ -22,10 +24,19 @@ class CampusConnectApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final campusState = context.watch<CampusState>();
     return MaterialApp(
       title: 'Campus Connect',
+      themeMode: campusState.isDarkMode ? ThemeMode.dark : ThemeMode.light,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2457C5)),
+        useMaterial3: true,
+      ),
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF2457C5),
+          brightness: Brightness.dark,
+        ),
         useMaterial3: true,
       ),
       initialRoute: '/',
@@ -35,6 +46,8 @@ class CampusConnectApp extends StatelessWidget {
         '/notices': (context) => const CampusNoticesPage(),
         '/subjects': (context) => const CampusSubjectsPage(),
         '/profile': (context) => const CampusProfilePage(),
+        '/faculty': (context) => const CampusFacultyPage(),
+        '/settings': (context) => const CampusSettingsPage(),
       },
     );
   }
@@ -51,6 +64,11 @@ class CampusHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Campus Connect'),
         actions: [
+          IconButton(
+            tooltip: 'Open settings',
+            onPressed: () => Navigator.pushNamed(context, '/settings'),
+            icon: const Icon(Icons.settings_outlined),
+          ),
           IconButton(
             tooltip: 'Open profile',
             onPressed: () => Navigator.pushNamed(context, '/profile'),
@@ -122,6 +140,20 @@ class CampusHomePage extends StatelessWidget {
                       icon: Icons.person,
                       width: cardWidth,
                       routeName: '/profile',
+                    ),
+                    _InfoCard(
+                      title: 'Faculty',
+                      subtitle: 'Find departments',
+                      icon: Icons.school_outlined,
+                      width: cardWidth,
+                      routeName: '/faculty',
+                    ),
+                    _InfoCard(
+                      title: 'Settings',
+                      subtitle: 'App preferences',
+                      icon: Icons.settings_outlined,
+                      width: cardWidth,
+                      routeName: '/settings',
                     ),
                   ],
                 ),
