@@ -8,7 +8,9 @@ class CampusBottomNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final routeName = ModalRoute.of(context)?.settings.name ?? '/';
+    final routeName = ModalRoute.of(context)?.settings.name;
+    // Embedded screens and isolated widget tests may not use named routes.
+    if (routeName == null) return const SizedBox.shrink();
     final selectedIndex = _routes.indexOf(routeName);
     return NavigationBar(
       selectedIndex: selectedIndex < 0 ? 0 : selectedIndex,
