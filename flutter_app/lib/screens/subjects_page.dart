@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/campus_bottom_navigation.dart';
 
 import '../widgets/favorite_section_action.dart';
 
@@ -60,6 +61,7 @@ class CampusSubjectsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const CampusBottomNavigation(),
       appBar: AppBar(
         title: const Text('Subjects'),
         actions: const [FavoriteSectionAction(section: 'Subjects')],
