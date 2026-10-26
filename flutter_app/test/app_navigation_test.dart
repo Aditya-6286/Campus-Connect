@@ -31,12 +31,14 @@ void main() {
     expect(find.text('1 section(s) saved'), findsOneWidget);
     expect(find.text('1'), findsOneWidget);
 
+    await tester.ensureVisible(find.text('Subjects').first);
     await tester.tap(find.text('Subjects').first);
     await tester.pumpAndSettle();
     expect(find.text('Learning hub'), findsOneWidget);
     await tester.tap(find.byIcon(Icons.arrow_back).first);
     await tester.pumpAndSettle();
 
+    await tester.ensureVisible(find.text('Profile').first);
     await tester.tap(find.text('Profile').first);
     await tester.pumpAndSettle();
     expect(find.text('Student Profile'), findsOneWidget);
