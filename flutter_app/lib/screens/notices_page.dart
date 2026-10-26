@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/campus_bottom_navigation.dart';
 
 import '../services/campus_api.dart';
 import '../widgets/favorite_section_action.dart';
@@ -41,6 +42,7 @@ class _CampusNoticesPageState extends State<CampusNoticesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const CampusBottomNavigation(),
       appBar: AppBar(
         title: const Text('Campus Notices'),
         actions: [
