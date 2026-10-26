@@ -52,7 +52,7 @@ class CampusState extends ChangeNotifier {
     notifyListeners();
     SharedPreferences.getInstance().then(
       (prefs) => prefs.setBool(_darkModeKey, enabled),
-    ).catchError((_) {});
+    ).catchError((_) => false);
   }
 
   Future<void> _saveFavorites() async {
