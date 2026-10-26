@@ -26,6 +26,8 @@ void main() {
     await tester.tap(find.byIcon(Icons.arrow_back).first);
     await tester.pumpAndSettle();
 
+    await tester.drag(find.byType(ListView).first, const Offset(0, -420));
+    await tester.pumpAndSettle();
     expect(find.text('1 section(s) saved'), findsOneWidget);
     expect(find.text('1'), findsOneWidget);
 
