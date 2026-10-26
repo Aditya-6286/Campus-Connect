@@ -42,7 +42,7 @@ void main() {
       await tester.enterText(find.byType(TextFormField).at(2), 'CSE');
       await tester.drag(find.byType(ListView), const Offset(0, -180));
       await tester.pumpAndSettle();
-      await tester.tap(find.text('Validate profile'));
+      await tester.tap(find.text('Save profile'));
       await tester.pumpAndSettle();
 
       expect(
