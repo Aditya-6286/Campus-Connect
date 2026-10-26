@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'widgets/campus_bottom_navigation.dart';
 
 import 'state/campus_state.dart';
 import 'screens/profile_page.dart';
@@ -61,6 +62,7 @@ class CampusHomePage extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      bottomNavigationBar: const CampusBottomNavigation(),
       appBar: AppBar(
         title: const Text('Campus Connect'),
         actions: [
