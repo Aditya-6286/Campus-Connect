@@ -31,6 +31,8 @@ void main() {
     expect(find.text('1 section(s) saved'), findsOneWidget);
     expect(find.text('1'), findsOneWidget);
 
+    await tester.drag(find.byType(ListView).first, const Offset(0, 420));
+    await tester.pumpAndSettle();
     await tester.ensureVisible(find.text('Subjects').first);
     await tester.tap(find.text('Subjects').first);
     await tester.pumpAndSettle();
