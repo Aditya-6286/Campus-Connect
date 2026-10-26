@@ -17,6 +17,8 @@ void main() {
         (tester) async {
       await tester.pumpWidget(buildTestApp());
 
+      await tester.ensureVisible(find.text('Validate profile'));
+      await tester.ensureVisible(find.text('Validate profile'));
       await tester.tap(find.text('Validate profile'));
       await tester.pumpAndSettle();
 
