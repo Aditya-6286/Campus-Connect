@@ -1,6 +1,6 @@
 # Campus Connect — Flutter Student Companion
 
-Campus Connect is a Flutter prototype that brings common student-facing campus information into one responsive interface. Its lab mapping follows the official [JNTUH R22 B.Tech CSE syllabus, CS506PC: UI Design–Flutter (page 87)](https://jntuh.ac.in/uploads/academics/R22B.Tech.CSECourseStructureSyllabus2.pdf).
+Campus Connect is a Flutter prototype that brings common student-facing campus information into one responsive interface.
 
 ## Student details
 
