@@ -17,7 +17,8 @@ void main() {
         (tester) async {
       await tester.pumpWidget(buildTestApp());
 
-      await tester.ensureVisible(find.text('Validate profile'));
+      await tester.drag(find.byType(ListView), const Offset(0, -180));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Validate profile'));
       await tester.pumpAndSettle();
 
@@ -33,7 +34,8 @@ void main() {
       await tester.enterText(find.byType(TextFormField).at(0), 'Asha Rao');
       await tester.enterText(find.byType(TextFormField).at(1), 'CS-101');
       await tester.enterText(find.byType(TextFormField).at(2), 'CSE');
-      await tester.ensureVisible(find.text('Validate profile'));
+      await tester.drag(find.byType(ListView), const Offset(0, -180));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Validate profile'));
       await tester.pumpAndSettle();
 
