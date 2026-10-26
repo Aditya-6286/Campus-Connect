@@ -1,7 +1,11 @@
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:campus_connect/state/campus_state.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  setUp(() {
+    SharedPreferences.setMockInitialValues({});
+  });
   group('CampusState', () {
     test('toggles a section between saved and unsaved', () {
       final state = CampusState();
